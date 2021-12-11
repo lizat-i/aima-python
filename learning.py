@@ -369,7 +369,7 @@ class DecisionFork:
         print('Test', name)
         for (val, subtree) in self.branches.items():
             print(' ' * 4 * indent, name, '=', val, '==>', end=' ')
-            subtree.display(indent)
+            subtree.display(indent + 1)
 
     def __repr__(self):
         return 'DecisionFork({0!r}, {1!r}, {2!r})'.format(self.attr, self.attr_name, self.branches)
