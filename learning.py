@@ -369,7 +369,7 @@ class DecisionFork:
         print('Test', name)
         for (val, subtree) in self.branches.items():
             print(' ' * 4 * indent, name, '=', val, '==>', end=' ')
-            subtree.display()
+            subtree.display(indent)
 
     def __repr__(self):
         return 'DecisionFork({0!r}, {1!r}, {2!r})'.format(self.attr, self.attr_name, self.branches)
@@ -384,8 +384,8 @@ class DecisionLeaf:
     def __call__(self, example):
         return self.result
 
-    def display(self):
-        print('RESULT =', self.result)
+    def display(self, indent):
+        print(' ' * 4 * indent, 'RESULT =', self.result)
 
     def __repr__(self):
         return repr(self.result)
