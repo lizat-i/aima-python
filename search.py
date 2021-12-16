@@ -5,10 +5,8 @@ The way to use this code is to subclass Problem to create a class of problems,
 then create problem instances and solve them with calls to the various search
 functions.
 """
-
 import sys
 from collections import deque
-
 from utils import *
 
 
@@ -22,8 +20,15 @@ class Problem:
         """The constructor specifies the initial state, and possibly a goal
         state, if there is a unique goal. Your subclass's constructor can add
         other arguments."""
+        
         self.initial = initial
+        
         self.goal = goal
+        self.iterations = []
+        self.frontier = []
+        self.iterations = []
+        self.state = []
+        
 
     def actions(self, state):
         """Return the actions that can be executed in the given
@@ -60,10 +65,6 @@ class Problem:
         """For optimization problems, each state has a value. Hill Climbing
         and related algorithms try to maximize this value."""
         raise NotImplementedError
-
-
-# ______________________________________________________________________________
-
 
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
